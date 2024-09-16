@@ -41,8 +41,8 @@ const transporter = nodemailer.createTransport({
     port: 587, // or 587
     secure: false, // For port 465, secure connection is enabled
     auth: {
-      user: 'no-reply@holdyah.com', // Your Namecheap email address
-      pass: 'B2SB4AV99tvn', // Your Namecheap email password
+      user: process.env.EMAIL_USERNAME, // Your Namecheap email address
+    pass: process.env.EMAIL_PASSWORD
     },
     tls: {
       rejectUnauthorized: false, // Disables certificate validation

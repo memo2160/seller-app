@@ -81,9 +81,9 @@ app.get('/', (req, res) => {
   app.use(authRoutes); // Load authentication routes
 
 // Start the server
-app.listen(3000, () => {
+app.listen(8445, () => {
 
-  console.log('Server started on http://localhost:3000');
+  console.log('Server started on http://localhost:8445');
 });
 
 export { db };
