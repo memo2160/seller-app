@@ -1,0 +1,224 @@
+
+     
+<div class="container" id="custom-container">
+  <div class=" text-center mt-5 ">
+
+      <h1 >Hold Information</h1>
+          
+      <% if (success_message && success_message.length > 0) { %>
+        <div class="alert alert-success" role="alert">
+          <p><%= success_message[0] %></p>  <!-- Display the first error message -->
+        </div>
+      <% } %>
+  </div>
+
+
+<div class="row ">
+<div class="col-lg-7 mx-auto">
+  <div class="card mt-2 mx-auto p-4 bg-light">
+      <div class="card-body bg-light">
+ 
+      <div class = "container">
+      <div class="controls">
+        <div class="row">
+          <div class="col-md-6">
+              <div class="form-group">
+                 <h4 >Droppers Information:</h4>
+                  
+              </div>
+          </div>
+      </div>
+          <div class="row">
+              <div class="col-md-6">
+                  <div class="form-group">
+                      <label class="font-weight-bold" for="dropper_fname">Firstname </label><br>
+                      <label><%=d_fname%></label>
+                      
+                  </div>
+              </div>
+              <div class="col-md-6">
+                  <div class="form-group">
+                      <label class="font-weight-bold" for="dropper_lname">Lastname</label><br>
+                      <%=d_lname %>
+                                                      </div>
+              </div>
+          </div>
+          <div class="row">
+              <div class="col-md-6">
+                  <div class="form-group">
+                      <label class="font-weight-bold" for="dropper_email">Email</label><br>
+                      <%=d_email%>
+                      
+                  </div>
+              </div>
+              <div class="col-md-6">
+                  <div class="form-group">
+                      <label class="font-weight-bold" for="dropper_phone">Mobile Phone # </label><br>
+                      <%=d_tel%>
+                      
+                  </div>
+              </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                   <h4 >Recievers Information:</h4>
+                    
+                </div>
+            </div>
+        </div>
+  <div class="row">
+              <div class="col-md-6">
+                  <div class="form-group">
+                      <label class="font-weight-bold" for="reciever_fname">Firstname </label><br>
+                      <%=r_fname%> 
+                      
+                  </div>
+              </div>
+              <div class="col-md-6">
+                  <div class="form-group">
+                      <label class="font-weight-bold" for="reciever_lname">Lastname </label><br>
+                      <%=r_lname %>
+                                                      </div>
+              </div>
+          </div>
+          <div class="row">
+              <div class="col-md-6">
+                  <div class="form-group">
+                      <label class="font-weight-bold" for="reciever_email">Email </label><br>
+                      <%=r_email%>
+                      
+                  </div>
+              </div>
+              <div class="col-md-6">
+                  <div class="form-group">
+                      <label class="font-weight-bold" for="reciever_phone">Mobile Phone # </label><br>
+                      <%=r_tel%>
+                      
+                  </div>
+              </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                   <h4>Hold Information:</h4>
+                    
+                </div>
+            </div>
+        </div>
+  <div class="row">
+    <div class="col-md-6">
+        <div class="form-group">
+            <label class="font-weight-bold" for="p_holdTime">Proposed Hold Time</label><br>
+            <% if (rate_type === 'Daily') { %>
+                <%= hold_time %> Day(s)
+            <% } else { %>
+                <%= hold_time %> Hour(s)
+            <% } %>
+        </div>
+    </div>
+			  <div class="col-md-6">
+                  <div class="form-group">
+                      <label class="font-weight-bold" for="p_finalTime">Final Hold Time</label><br>
+                      <% if (rate_type === 'Daily') { %>
+                        <%= final_hold_time %> Day(s)
+                    <% } else { %>
+                        <%= final_hold_time %> Hour(s)
+                    <% } %>
+                      
+                  </div>
+              </div>
+          </div>
+		  <div class="row">
+              <div class="col-md-6">
+                  <div class="form-group">
+                      <label class="font-weight-bold" for="secretPin">Pin</label><br>
+                      <%=order_pin%>
+                      
+                  </div>
+              </div>
+			  <div class="col-md-6">
+                  <div class="form-group">
+                      <label class="font-weight-bold" for="status">Order Status</label><br>
+                      <%=hold_status%>
+                      
+                  </div>
+              </div>
+          </div>
+		  <div class="row">
+              <div class="col-md-6">
+                  <div class="form-group">
+                      <label class="font-weight-bold" for="q_price">Quoted Price</label><br>
+                      $<%=cost_of_hold%> <%=payment%>
+                      
+                  </div>
+              </div>
+			  <div class="col-md-6">
+                  <div class="form-group">
+                      <label class="font-weight-bold" for="f_price">Current Price</label><br>
+                      $<%=actual_cost_of_hold%> 
+                      
+                  </div>
+              </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="font-weight-bold" for="dropoff_time">Drop Off Time</label><br>
+                    <%=dropOff_time%>
+                    
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="font-weight-bold" for="pp_time">Pickup Time</label><br>
+                    <%=pp_time%>
+                    
+                </div>
+            </div>
+        </div>
+          <div class="row">
+              <div class="col-md-12">
+                  <div class="form-group">
+                      <label class="font-weight-bold" for="package_description">Package Description </label><br>
+                      <%=package_des%>
+                      </div>
+
+                  </div>
+                  <div class="col-md-12">
+                    <div class="form-group">
+                        <label class="font-weight-bold" for="drop_off_location">Drop Off Location </label><br>
+                        <%=business_name%>, <%=business_address%>
+                        </div>
+  
+                    </div>
+
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <%- include('../partials/hold_info_button.ejs'); %>
+                        </div>
+  
+                    </div>
+    
+          </div>
+
+
+  </div>
+   </form>
+  </div>
+      </div>
+
+
+</div>
+  <!-- /.8 -->
+
+</div>
+<!-- /.row-->
+
+</div>
+</div>
+
+
+           
+            
+         

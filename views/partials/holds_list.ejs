@@ -1,0 +1,37 @@
+
+<div class="main-page">
+  <div class="container" id="custom-container">
+  <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Pin</th>
+          <th scope="col">Dropper</th>
+          <th scope="col">Reciever</th>
+          <th scope="col">Package Description</th>
+          <th scope="col">Time Requested</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+        <% for (var i = 0; i < result.length; i++) { %>
+          <tr>
+            <td><a href="/dashboard/<%= result[i].pin %>"><%= result[i].pin %></a></td>
+            <td><%= result[i].d_fname %> <%= result[i].d_lname %></td>
+            <td><%= result[i].r_fname %> <%= result[i].r_lname %></td>
+            <td><%= result[i].package_description %></td>
+            <% if (result[i].rate_type === "Daily") { %>
+              <td><%= result[i].proposed_time_hold %> Day(s)</td>
+            <% } else { %>
+              <td><%= Math.floor(result[i].proposed_time_hold / 60) %> Hour(s)</td>
+            <% } %>
+          </tr>
+        <% } %>
+        
+        
+        </tr>
+      </tbody>
+    </table>
+</div>
+</div>
+
+  

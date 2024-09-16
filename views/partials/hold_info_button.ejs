@@ -1,0 +1,43 @@
+<% if(hold_status == 'Active'){ %>
+    <div class="row">
+      <div class="col">
+        <form action="/dashboard" method="GET">
+          <input type="hidden" id="home_label" name="home_label">
+          <input type="submit" value="Home" id="home" class="btn btn-success btn-send  pt-2 btn-block">
+        </form> 
+      </div>
+    </div>
+   <% }else if(hold_status == 'estimate'){ %>
+
+    <div class="row">
+      <div class="col">
+        <form action="/dashboard" method="GET">
+          <input type="hidden" id="home_label" name="home_label">
+          <input type="submit" value="Home" id="home" class="btn btn-success btn-send  pt-2 btn-block">
+        </form> 
+      </div>
+      <div class="col">
+        <form action="/editHold/<%=order_pin%>" method="POST">
+          <input type="hidden" id="edit_order_pin" name="edit_order_pin">
+          <input type="submit" value="Edit Hold" id="cancel_hold_btn" class="btn btn-success btn-send  pt-2 btn-block">
+        </form> 
+      </div>
+      <div class="col">
+        <form action="/cancelHold/<%=order_pin%>" method="POST">
+          <input type="hidden" id="cancel_order_pin" name="cancel_order_pin">
+          <input type="submit" value="Cancel Hold" id="cancel_hold_btn" class="btn btn-success btn-send  pt-2 btn-block">
+        </form> 
+      </div>
+    </div>
+    <% }else{ %>
+      <div class="row">
+        <div class="col">
+          <form action="/dashboard" method="GET">
+            <input type="hidden" id="home_label" name="home_label">
+            <input type="submit" value="Home" id="home"  class="btn btn-success btn-send  pt-2 btn-block">
+          </form> 
+          <% } %>
+        </div>
+      </div>
+      
+  </div>

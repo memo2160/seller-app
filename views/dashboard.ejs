@@ -1,0 +1,82 @@
+<%- include('./partials/head.ejs'); %>
+<body>
+    <div class="d-flex" id="wrapper">
+        <!-- Sidebar-->
+        <div class="border-end bg-white" id="sidebar-wrapper">
+            <div class="sidebar-heading border-bottom bg-light">Holdyah SMB Portal</div>
+            <div class="list-group list-group-flush">
+                <a class="list-group-item list-group-item-action list-group-item-light p-3" onclick="showContent('create_hold')" href="/create_hold">Create Hold</a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3"onclick="showContent('active_holds')" href="/active_holds">Active Holds</a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3" onclick="showContent('pending_holds')"  href="/pending-holds">Pending Holds</a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3" onclick="showContent('cancelled_holds')" href="/cancelled-holds">Canceled Holds</a>
+            </div>
+        </div>
+        <!-- Page content wrapper-->
+        <div id="page-content-wrapper">
+            <!-- Top navigation-->
+            <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+                <div class="container-fluid">
+                    <button class="btn btn-primary" id="sidebarToggle">Toggle Menu</button>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <%= user.username %>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="#!">Profile</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a href="/logout" class="dropdown-item">Logout</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <!-- Page content-->
+            <div class="container-fluid">
+                <% if (!section_req || section_req === "welcome") { %>
+                    <section id="welcome-content">
+                        <h1 class="mt-4">Welcome, <%= user.username %>!</h1>
+                        <p>The menu appears collapsed on smaller screens and expanded on larger ones. Toggle it using the button below.</p>
+                        <p>Ensure all page content is within <code>#page-content-wrapper</code>. The top navbar is optional, just for demonstration.</p>
+                    </section>
+                <% } else if (section_req === "hold_info") { %>
+                    <section id="hold_info-content">
+                        <%- include('./partials/hold_info.ejs'); %>
+                    </section>
+                    <% } else if (section_req === "create_hold") { %>
+
+                <section id="create_hold-content">
+                    <%- include('./partials/create_hold.ejs'); %>
+                </section>
+                <% } else if (section_req === "active_holds") { %>
+                <section id="active_holds-content" ">
+                    <%- include('./partials/holds_list.ejs'); %>
+                </section>
+                <% } else if (section_req === "pending_holds") { %>
+                <section id="pending_holds-content" ">
+                    <%- include('./partials/holds_list.ejs'); %>
+                </section>
+                <% } else if (section_req === "canceled_holds") { %>
+                    <section id="canceled_holds-content" ">
+                        <%- include('./partials/holds_list.ejs'); %>
+                    </section>
+                    <% } else if (section_req === "edit_holds") { %>
+                        <section id="update_holds-content" ">
+                            <%- include('./partials/edit_hold.ejs'); %>
+                        </section>
+                    <% }%>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="/js/script.js"></script>
+</body>
+</html>
